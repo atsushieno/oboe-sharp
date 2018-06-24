@@ -1,0 +1,3 @@
+[submodule "external/oboe"]
+	path = external/oboe
+	url = https://github.com/google/oboe
