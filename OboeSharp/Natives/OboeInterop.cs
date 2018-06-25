@@ -467,6 +467,7 @@ namespace OboeSharp.Natives
 		static extern OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_ptr_t stream);
 
 		// AudioStreamCallback
+
 		[DllImport (LibraryName)]
 		static extern oboe_audio_stream_callback_ptr_t oboe_audio_stream_callback_create ();
 
@@ -484,6 +485,5 @@ namespace OboeSharp.Natives
 
 		[DllImport (LibraryName)]
 		static extern void oboe_audio_stream_callback_set_on_error_after_close (oboe_audio_stream_callback_ptr_t instance, on_error_close_func onErrorAfterClose);
-
 	}
 }

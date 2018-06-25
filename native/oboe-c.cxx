@@ -290,7 +290,6 @@ int32_t oboe_audio_stream_get_frames_per_burst (oboe_audio_stream_ptr_t instance
 	return (OboeResult) ((oboe::AudioStream*) instance)->getFramesPerBurst ();
 }
 
-/* FIXME: enable this.
 bool oboe_audio_stream_is_playing (oboe_audio_stream_ptr_t instance)
 {
 	return ((oboe::AudioStream*) instance)->isPlaying ();
@@ -305,7 +304,6 @@ int32_t oboe_audio_stream_get_bytes_per_sample (oboe_audio_stream_ptr_t instance
 {
 	return (OboeResult) ((oboe::AudioStream*) instance)->getBytesPerSample ();
 }
-*/
 
 int64_t oboe_audio_stream_get_frames_written (oboe_audio_stream_ptr_t instance)
 {
@@ -484,7 +482,6 @@ oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_audio_api (oboe_au
 	return ((oboe::AudioStreamBuilder*) instance)->setAudioApi ((oboe::AudioApi) audioApi);
 }
 
-/* FIXME: enable this.
 bool oboe_audio_stream_builder_is_aaudio_supported (oboe_audio_stream_builder_ptr_t instance)
 {
 	return ((oboe::AudioStreamBuilder*) instance)->isAAudioSupported ();
@@ -494,7 +491,6 @@ bool oboe_audio_stream_builder_is_aaudio_recommended (oboe_audio_stream_builder_
 {
 	return ((oboe::AudioStreamBuilder*) instance)->isAAudioRecommended ();
 }
-*/
 
 oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_sharing_mode (oboe_audio_stream_builder_ptr_t instance, OboeSharingMode sharingMode)
 {
@@ -546,12 +542,10 @@ int32_t oboe_audio_stream_builder_get_default_frames_per_burst (oboe_audio_strea
 	return ((oboe::AudioStreamBuilder*) instance)->getDefaultFramesPerBurst ();
 }
 
-/* FIXME: enable this.
 OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_ptr_t stream)
 {
 	return (OboeResult) ((oboe::AudioStreamBuilder*) instance)->openStream ((oboe::AudioStream**) &stream);
 }
-*/
 
 // AudioStreamCallback
 
