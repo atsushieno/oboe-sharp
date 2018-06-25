@@ -175,6 +175,8 @@ typedef void* oboe_audio_stream_callback_ptr_t;
 
 // ResultWithValue (is annoying; maybe I just remove them all)
 
+/*
+
 oboe_result_with_value_ptr_t oboe_result_with_value_of_int32_create (int32_t value, OboeResult result)
 {
 	return result == OboeResult::OK ? new oboe::ResultWithValue<int32_t> (value) : new oboe::ResultWithValue<int32_t> ((oboe::Result) result);
@@ -204,6 +206,8 @@ double oboe_result_with_value_of_double_value (oboe_result_with_value_ptr_t inst
 {
 	return ((oboe::ResultWithValue<double>*) instance)->value();
 }
+
+*/
 
 // LatencyTuner
 
@@ -435,6 +439,11 @@ oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_create ()
 	return new oboe::AudioStreamBuilder ();
 }
 
+void oboe_audio_stream_builder_delete (oboe_audio_stream_builder_ptr_t instance)
+{
+	delete (oboe::AudioStreamBuilder*) instance;
+}
+
 oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_channel_count (oboe_audio_stream_builder_ptr_t instance, int channelCount)
 {
 	return ((oboe::AudioStreamBuilder*) instance)->setChannelCount (channelCount);
@@ -538,9 +547,9 @@ int32_t oboe_audio_stream_builder_get_default_frames_per_burst (oboe_audio_strea
 }
 
 /* FIXME: enable this.
-OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_ptr_t* stream)
+OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_ptr_t stream)
 {
-	return (OboeResult) ((oboe::AudioStreamBuilder*) instance)->openStream ((oboe::AudioStream**) stream);
+	return (OboeResult) ((oboe::AudioStreamBuilder*) instance)->openStream ((oboe::AudioStream**) &stream);
 }
 */
 
