@@ -141,7 +141,7 @@ namespace OboeSharp.Natives
 
 	#region native enums
 
-	enum OboeStreamState
+	public enum OboeStreamState
 	{
 		Uninitialized = AAUDIO_STREAM_STATE_UNINITIALIZED,
         Unknown = AAUDIO_STREAM_STATE_UNKNOWN,
@@ -159,13 +159,13 @@ namespace OboeSharp.Natives
         Disconnected = AAUDIO_STREAM_STATE_DISCONNECTED,
     };
 
-	enum OboeDirection
+	public enum OboeDirection
 	{
 		Output = AAUDIO_DIRECTION_OUTPUT,
 		Input = AAUDIO_DIRECTION_INPUT,
     };
 
-	enum OboeAudioFormat
+	public enum OboeAudioFormat
 	{
 		Invalid = AAUDIO_FORMAT_INVALID,
         Unspecified = AAUDIO_FORMAT_UNSPECIFIED,
@@ -173,13 +173,13 @@ namespace OboeSharp.Natives
         Float = AAUDIO_FORMAT_PCM_FLOAT,
     };
 
-	enum OboeDataCallbackResult
+	public enum OboeDataCallbackResult
 	{
 		Continue = AAUDIO_CALLBACK_RESULT_CONTINUE,
         Stop = AAUDIO_CALLBACK_RESULT_STOP,
     }
 
-	enum OboeResult
+	public enum OboeResult
 	{
 		OK,
         ErrorBase = AAUDIO_ERROR_BASE,
@@ -201,27 +201,27 @@ namespace OboeSharp.Natives
         ErrorInvalidRate = AAUDIO_ERROR_INVALID_RATE,
     }
 
-	enum OboeSharingMode
+	public enum OboeSharingMode
 	{
 		Exclusive = AAUDIO_SHARING_MODE_EXCLUSIVE,
         Shared = AAUDIO_SHARING_MODE_SHARED,
     }
 
-	enum OboePerformanceMode
+	public enum OboePerformanceMode
 	{
 		None = AAUDIO_PERFORMANCE_MODE_NONE,
         PowerSaving = AAUDIO_PERFORMANCE_MODE_POWER_SAVING,
         LowLatency = AAUDIO_PERFORMANCE_MODE_LOW_LATENCY
 	}
 
-	enum OboeAudioApi
+	public enum OboeAudioApi
 	{
 		Unspecified = 0,
 		OpenSLES,
 		AAudio
 	}
 
-	enum OboeUsage
+	public enum OboeUsage
 	{
 		Media = AAUDIO_USAGE_MEDIA,
         VoiceCommunication = AAUDIO_USAGE_VOICE_COMMUNICATION,
@@ -237,7 +237,7 @@ namespace OboeSharp.Natives
         Assistant = AAUDIO_USAGE_ASSISTANT,
     }
 
-	enum OboeContentType
+	public enum OboeContentType
 	{
 		Speech = AAUDIO_CONTENT_TYPE_SPEECH,
 		Music = AAUDIO_CONTENT_TYPE_MUSIC,
@@ -245,7 +245,7 @@ namespace OboeSharp.Natives
 		Sonification = AAUDIO_CONTENT_TYPE_SONIFICATION,
 	}
 
-	enum OboeInputPreset
+	public enum OboeInputPreset
 	{
 		Generic = AAUDIO_INPUT_PRESET_GENERIC,
 		Camcorder = AAUDIO_INPUT_PRESET_CAMCORDER,
@@ -254,7 +254,7 @@ namespace OboeSharp.Natives
 		Unprocessed = AAUDIO_INPUT_PRESET_UNPROCESSED,
 	}
 
-	enum OboeSessionId
+	public enum OboeSessionId
 	{
 		None = AAUDIO_SESSION_ID_NONE,
 		Allocate = AAUDIO_SESSION_ID_ALLOCATE,
@@ -283,207 +283,207 @@ namespace OboeSharp.Natives
 		// AudioStream
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_open (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResult oboe_audio_stream_open (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_close (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResult oboe_audio_stream_close (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_start (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResult oboe_audio_stream_start (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_pause (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResult oboe_audio_stream_pause (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_flush (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResult oboe_audio_stream_flush (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_stop (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResult oboe_audio_stream_stop (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeStreamState oboe_audio_stream_get_state (oboe_audio_stream_ptr_t instance);
+		public static extern OboeStreamState oboe_audio_stream_get_state (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_wait_for_state_change (oboe_audio_stream_ptr_t instance, OboeStreamState inputState, out OboeStreamState nextState, long timeoutNanoseconds);
+		public static extern OboeResult oboe_audio_stream_wait_for_state_change (oboe_audio_stream_ptr_t instance, OboeStreamState inputState, out OboeStreamState nextState, long timeoutNanoseconds);
 
 		[DllImport (LibraryName)]
-		static extern OboeResultWithValueInt32 oboe_audio_stream_set_buffer_size_in_frames (oboe_audio_stream_ptr_t instance, int requestedFrames);
+		public static extern OboeResultWithValueInt32 oboe_audio_stream_set_buffer_size_in_frames (oboe_audio_stream_ptr_t instance, int requestedFrames);
 
 		[DllImport (LibraryName)]
-		static extern OboeResultWithValueInt32 oboe_audio_stream_get_x_run_count (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResultWithValueInt32 oboe_audio_stream_get_x_run_count (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_get_frames_per_burst (oboe_audio_stream_ptr_t instance);
+		public static extern int oboe_audio_stream_get_frames_per_burst (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern bool oboe_audio_stream_is_playing (oboe_audio_stream_ptr_t instance);
+		public static extern bool oboe_audio_stream_is_playing (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_get_bytes_per_frame (oboe_audio_stream_ptr_t instance);
+		public static extern int oboe_audio_stream_get_bytes_per_frame (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_get_bytes_per_sample (oboe_audio_stream_ptr_t instance);
+		public static extern int oboe_audio_stream_get_bytes_per_sample (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern long oboe_audio_stream_get_frames_written (oboe_audio_stream_ptr_t instance);
+		public static extern long oboe_audio_stream_get_frames_written (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern long oboe_audio_stream_get_frames_read (oboe_audio_stream_ptr_t instance);
+		public static extern long oboe_audio_stream_get_frames_read (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResultWithValueDouble oboe_audio_stream_calculate_latency_millis (oboe_audio_stream_ptr_t instance);
+		public static extern OboeResultWithValueDouble oboe_audio_stream_calculate_latency_millis (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_get_timestamp (oboe_audio_stream_ptr_t instance, clockid_t clockId, out long framePosition, out long timeNanoseconds);
+		public static extern OboeResult oboe_audio_stream_get_timestamp (oboe_audio_stream_ptr_t instance, clockid_t clockId, out long framePosition, out long timeNanoseconds);
 
 		[DllImport (LibraryName)]
-		static extern OboeResultWithValueInt32 oboe_audio_stream_write (oboe_audio_stream_ptr_t instance, IntPtr buffer, int numFrames, long timeoutNanoseconds);
+		public static extern OboeResultWithValueInt32 oboe_audio_stream_write (oboe_audio_stream_ptr_t instance, IntPtr buffer, int numFrames, long timeoutNanoseconds);
 
 		[DllImport (LibraryName)]
-		static extern OboeResultWithValueInt32 oboe_audio_stream_read (oboe_audio_stream_ptr_t instance, IntPtr buffer, int numFrames, long timeoutNanoseconds);
+		public static extern OboeResultWithValueInt32 oboe_audio_stream_read (oboe_audio_stream_ptr_t instance, IntPtr buffer, int numFrames, long timeoutNanoseconds);
 
 		[DllImport (LibraryName)]
-		static extern OboeAudioApi oboe_audio_stream_get_audio_api (oboe_audio_stream_ptr_t instance);
+		public static extern OboeAudioApi oboe_audio_stream_get_audio_api (oboe_audio_stream_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern bool oboe_audio_stream_uses_aaudio (oboe_audio_stream_ptr_t instance);
+		public static extern bool oboe_audio_stream_uses_aaudio (oboe_audio_stream_ptr_t instance);
 
 		// AudioStreamBase
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_base_get_channel_count (oboe_audio_stream_base_ptr_t instance);
+		public static extern int oboe_audio_stream_base_get_channel_count (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeDirection oboe_audio_stream_base_get_direction (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboeDirection oboe_audio_stream_base_get_direction (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_base_get_sample_rate (oboe_audio_stream_base_ptr_t instance);
+		public static extern int oboe_audio_stream_base_get_sample_rate (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_base_get_frames_per_callback (oboe_audio_stream_base_ptr_t instance);
+		public static extern int oboe_audio_stream_base_get_frames_per_callback (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeAudioFormat oboe_audio_stream_base_get_format (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboeAudioFormat oboe_audio_stream_base_get_format (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_base_get_buffer_size_in_frames (oboe_audio_stream_base_ptr_t instance);
+		public static extern int oboe_audio_stream_base_get_buffer_size_in_frames (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_base_get_buffer_capacity_in_frames (oboe_audio_stream_base_ptr_t instance);
+		public static extern int oboe_audio_stream_base_get_buffer_capacity_in_frames (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeSharingMode oboe_audio_stream_base_get_sharing_mode (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboeSharingMode oboe_audio_stream_base_get_sharing_mode (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboePerformanceMode oboe_audio_stream_base_get_performance_mode (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboePerformanceMode oboe_audio_stream_base_get_performance_mode (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_base_get_device_id (oboe_audio_stream_base_ptr_t instance);
+		public static extern int oboe_audio_stream_base_get_device_id (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_callback_ptr_t oboe_audio_stream_base_get_callback (oboe_audio_stream_base_ptr_t instance);
+		public static extern oboe_audio_stream_callback_ptr_t oboe_audio_stream_base_get_callback (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeUsage oboe_audio_stream_base_get_usage (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboeUsage oboe_audio_stream_base_get_usage (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeContentType oboe_audio_stream_base_get_content_type (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboeContentType oboe_audio_stream_base_get_content_type (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeInputPreset oboe_audio_stream_base_get_input_preset (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboeInputPreset oboe_audio_stream_base_get_input_preset (oboe_audio_stream_base_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeSessionId oboe_audio_stream_base_get_session_id (oboe_audio_stream_base_ptr_t instance);
+		public static extern OboeSessionId oboe_audio_stream_base_get_session_id (oboe_audio_stream_base_ptr_t instance);
 
 		// AudioStreamBuilder
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_create ();
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_create ();
 
 		[DllImport (LibraryName)]
-		static extern void oboe_audio_stream_builder_delete (oboe_audio_stream_builder_ptr_t instance);
+		public static extern void oboe_audio_stream_builder_delete (oboe_audio_stream_builder_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_channel_count (oboe_audio_stream_builder_ptr_t instance, int channelCount);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_channel_count (oboe_audio_stream_builder_ptr_t instance, int channelCount);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_direction (oboe_audio_stream_builder_ptr_t instance, OboeDirection direction);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_direction (oboe_audio_stream_builder_ptr_t instance, OboeDirection direction);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_sample_rate (oboe_audio_stream_builder_ptr_t instance, int sampleRate);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_sample_rate (oboe_audio_stream_builder_ptr_t instance, int sampleRate);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_frames_per_callback (oboe_audio_stream_builder_ptr_t instance, int framesPerCallback);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_frames_per_callback (oboe_audio_stream_builder_ptr_t instance, int framesPerCallback);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_format (oboe_audio_stream_builder_ptr_t instance, OboeAudioFormat format);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_format (oboe_audio_stream_builder_ptr_t instance, OboeAudioFormat format);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_buffer_capacity_in_frames (oboe_audio_stream_builder_ptr_t instance, int bufferCapacityInFrames);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_buffer_capacity_in_frames (oboe_audio_stream_builder_ptr_t instance, int bufferCapacityInFrames);
 
 		[DllImport (LibraryName)]
-		static extern OboeAudioApi oboe_audio_stream_builder_get_audio_api (oboe_audio_stream_builder_ptr_t instance);
+		public static extern OboeAudioApi oboe_audio_stream_builder_get_audio_api (oboe_audio_stream_builder_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_audio_api (oboe_audio_stream_builder_ptr_t instance, OboeAudioApi audioApi);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_audio_api (oboe_audio_stream_builder_ptr_t instance, OboeAudioApi audioApi);
 
 		[DllImport (LibraryName)]
-		static extern bool oboe_audio_stream_builder_is_aaudio_supported (oboe_audio_stream_builder_ptr_t instance);
+		public static extern bool oboe_audio_stream_builder_is_aaudio_supported (oboe_audio_stream_builder_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern bool oboe_audio_stream_builder_is_aaudio_recommended (oboe_audio_stream_builder_ptr_t instance);
+		public static extern bool oboe_audio_stream_builder_is_aaudio_recommended (oboe_audio_stream_builder_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_sharing_mode (oboe_audio_stream_builder_ptr_t instance, OboeSharingMode sharingMode);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_sharing_mode (oboe_audio_stream_builder_ptr_t instance, OboeSharingMode sharingMode);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_performance_mode (oboe_audio_stream_builder_ptr_t instance, OboePerformanceMode performanceMode);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_performance_mode (oboe_audio_stream_builder_ptr_t instance, OboePerformanceMode performanceMode);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_usage (oboe_audio_stream_builder_ptr_t instance, OboeUsage usage);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_usage (oboe_audio_stream_builder_ptr_t instance, OboeUsage usage);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_content_type (oboe_audio_stream_builder_ptr_t instance, OboeContentType contentType);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_content_type (oboe_audio_stream_builder_ptr_t instance, OboeContentType contentType);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_input_preset (oboe_audio_stream_builder_ptr_t instance, OboeInputPreset inputPreset);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_input_preset (oboe_audio_stream_builder_ptr_t instance, OboeInputPreset inputPreset);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_session_id (oboe_audio_stream_builder_ptr_t instance, OboeSessionId sessionId);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_session_id (oboe_audio_stream_builder_ptr_t instance, OboeSessionId sessionId);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_device_id (oboe_audio_stream_builder_ptr_t instance, int deviceId);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_device_id (oboe_audio_stream_builder_ptr_t instance, int deviceId);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_callback (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_callback_ptr_t streamCallback);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_callback (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_callback_ptr_t streamCallback);
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_default_frames_per_burst (oboe_audio_stream_builder_ptr_t instance, int defaultFramesPerBurst);
+		public static extern oboe_audio_stream_builder_ptr_t oboe_audio_stream_builder_set_default_frames_per_burst (oboe_audio_stream_builder_ptr_t instance, int defaultFramesPerBurst);
 
 		[DllImport (LibraryName)]
-		static extern int oboe_audio_stream_builder_get_default_frames_per_burst (oboe_audio_stream_builder_ptr_t instance);
+		public static extern int oboe_audio_stream_builder_get_default_frames_per_burst (oboe_audio_stream_builder_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		static extern OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_ptr_t stream);
+		public static extern OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, out oboe_audio_stream_ptr_t stream);
 
 		// AudioStreamCallback
 
 		[DllImport (LibraryName)]
-		static extern oboe_audio_stream_callback_ptr_t oboe_audio_stream_callback_create ();
+		public static extern oboe_audio_stream_callback_ptr_t oboe_audio_stream_callback_create ();
 
 		[DllImport (LibraryName)]
-		static extern void oboe_audio_stream_callback_free (oboe_audio_stream_callback_ptr_t instance);
+		public static extern void oboe_audio_stream_callback_free (oboe_audio_stream_callback_ptr_t instance);
 
-		delegate OboeDataCallbackResult on_audio_ready_func (oboe_audio_stream_ptr_t oboeStream, IntPtr audioData, int numFrames);
-		delegate void on_error_close_func (oboe_audio_stream_ptr_t oboeStream, OboeResult error);
-
-		[DllImport (LibraryName)]
-		static extern void oboe_audio_stream_callback_set_on_audio_ready (oboe_audio_stream_callback_ptr_t instance, on_audio_ready_func onAudioReady);
+		public delegate OboeDataCallbackResult on_audio_ready_func (oboe_audio_stream_ptr_t oboeStream, IntPtr audioData, int numFrames);
+		public delegate void on_error_close_func (oboe_audio_stream_ptr_t oboeStream, OboeResult error);
 
 		[DllImport (LibraryName)]
-		static extern void oboe_audio_stream_callback_set_on_error_before_close (oboe_audio_stream_callback_ptr_t instance, on_error_close_func onErrorBeforeClose);
+		public static extern void oboe_audio_stream_callback_set_on_audio_ready (oboe_audio_stream_callback_ptr_t instance, on_audio_ready_func onAudioReady);
 
 		[DllImport (LibraryName)]
-		static extern void oboe_audio_stream_callback_set_on_error_after_close (oboe_audio_stream_callback_ptr_t instance, on_error_close_func onErrorAfterClose);
+		public static extern void oboe_audio_stream_callback_set_on_error_before_close (oboe_audio_stream_callback_ptr_t instance, on_error_close_func onErrorBeforeClose);
+
+		[DllImport (LibraryName)]
+		public static extern void oboe_audio_stream_callback_set_on_error_after_close (oboe_audio_stream_callback_ptr_t instance, on_error_close_func onErrorAfterClose);
 	}
 }

@@ -44,19 +44,20 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Natives\OboeInterop.cs" />
+    <Compile Include="OboeSharp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="..\build\oboe-c\armeabi-v7a\liboboe-c.so">
-      <Link>lib\armeabi-v7a\liboboe-c.so</Link>
-    </None>
-    <None Include="..\build\oboe-c\arm64-v8a\liboboe-c.so">
+    <None Include="..\build\oboe\arm64-v8a\liboboe-c.so">
       <Link>lib\arm64-v8a\liboboe-c.so</Link>
     </None>
-    <None Include="..\build\oboe-c\x86\liboboe-c.so">
+    <None Include="..\build\oboe\armeabi-v7a\liboboe-c.so">
+      <Link>lib\armeabi-v7a\liboboe-c.so</Link>
+    </None>
+    <None Include="..\build\oboe\x86\liboboe-c.so">
       <Link>lib\x86\liboboe-c.so</Link>
     </None>
-    <None Include="..\build\oboe-c\x86_64\liboboe-c.so">
+    <None Include="..\build\oboe\x86_64\liboboe-c.so">
       <Link>lib\x86_64\liboboe-c.so</Link>
     </None>
   </ItemGroup>
