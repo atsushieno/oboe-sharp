@@ -464,7 +464,7 @@ namespace OboeSharp.Natives
 		public static extern int oboe_audio_stream_builder_get_default_frames_per_burst (oboe_audio_stream_builder_ptr_t instance);
 
 		[DllImport (LibraryName)]
-		public static extern OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, out oboe_audio_stream_ptr_t stream);
+		public static extern OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, out IntPtr stream);
 
 		// AudioStreamCallback
 

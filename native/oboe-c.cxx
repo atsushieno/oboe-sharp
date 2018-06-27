@@ -542,9 +542,12 @@ int32_t oboe_audio_stream_builder_get_default_frames_per_burst (oboe_audio_strea
 	return ((oboe::AudioStreamBuilder*) instance)->getDefaultFramesPerBurst ();
 }
 
-OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_ptr_t stream)
+OboeResult oboe_audio_stream_builder_open_stream (oboe_audio_stream_builder_ptr_t instance, oboe_audio_stream_ptr_t *stream)
 {
-	return (OboeResult) ((oboe::AudioStreamBuilder*) instance)->openStream ((oboe::AudioStream**) &stream);
+	oboe::AudioStream *ptr;
+	Result ret = ((oboe::AudioStreamBuilder*) instance)->openStream (&ptr);
+	*stream = ptr;
+	return (OboeResult) ret;
 }
 
 // AudioStreamCallback

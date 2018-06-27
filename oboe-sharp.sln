@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OboeSharp", "OboeSharp\OboeSharp.csproj", "{6C481785-92A8-4B12-851A-23C0FFD2F7B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OboeSharp.Example", "OboeSharp.Example\OboeSharp.Example.csproj", "{3855A60B-9059-483D-BF26-E7419E0B2ECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OboeSharp.Tests", "OboeSharp.Tests\OboeSharp.Tests.csproj", "{F3138BEC-238C-477D-80A8-61F4C1AB69DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +17,13 @@ Global
 		{6C481785-92A8-4B12-851A-23C0FFD2F7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C481785-92A8-4B12-851A-23C0FFD2F7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C481785-92A8-4B12-851A-23C0FFD2F7B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3855A60B-9059-483D-BF26-E7419E0B2ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3855A60B-9059-483D-BF26-E7419E0B2ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3855A60B-9059-483D-BF26-E7419E0B2ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3855A60B-9059-483D-BF26-E7419E0B2ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3138BEC-238C-477D-80A8-61F4C1AB69DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3138BEC-238C-477D-80A8-61F4C1AB69DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3138BEC-238C-477D-80A8-61F4C1AB69DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3138BEC-238C-477D-80A8-61F4C1AB69DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
