@@ -101,17 +101,18 @@ namespace OboeSharp
 		}
 	}
 
-	public delegate OboeDataCallbackResult OnAudioReadyDelegate (AudioStreamCallback obj, IntPtr audioData, int numFrames);
-	public delegate OboeDataCallbackResult OnAudioErrorDelegate (AudioStreamCallback obj, OboeResult error);
+	// Those first arguments are kept as IntPtr. We don't want to populate or even lookup AudioStream instance many times.
+	public delegate OboeDataCallbackResult OnAudioReadyDelegate (IntPtr stream, IntPtr audioData, int numFrames);
+	public delegate OboeDataCallbackResult OnAudioErrorDelegate (IntPtr stream, OboeResult error);
 
 	public class AudioStreamCallback : IDisposable
 	{
 		public AudioStreamCallback ()
 		{
 			instance = OboeInterop.oboe_audio_stream_callback_create ();
-			OboeInterop.oboe_audio_stream_callback_set_on_audio_ready (instance, (oboeStream, audioData, numFrames) => AudioReady (this, audioData, numFrames));
-			OboeInterop.oboe_audio_stream_callback_set_on_error_before_close (instance, (oboeStream, error) => ClosingForError (this, error));
-			OboeInterop.oboe_audio_stream_callback_set_on_error_after_close (instance, (oboeStream, error) => ClosedForError (this, error));
+			OboeInterop.oboe_audio_stream_callback_set_on_audio_ready (instance, (oboeStream, audioData, numFrames) => AudioReady (oboeStream, audioData, numFrames));
+			OboeInterop.oboe_audio_stream_callback_set_on_error_before_close (instance, (oboeStream, error) => ClosingForError (oboeStream, error));
+			OboeInterop.oboe_audio_stream_callback_set_on_error_after_close (instance, (oboeStream, error) => ClosedForError (oboeStream, error));
 		}
 
 		public event OnAudioReadyDelegate AudioReady;
@@ -149,7 +150,7 @@ namespace OboeSharp
 		public OboeContentType ContentType => OboeInterop.oboe_audio_stream_base_get_content_type (instance);
 		public OboeInputPreset InputPreset => OboeInterop.oboe_audio_stream_base_get_input_preset (instance);
 		public OboeSharingMode SharingMode => OboeInterop.oboe_audio_stream_base_get_sharing_mode (instance);
-		public int InstanceCount => OboeInterop.oboe_audio_stream_base_get_channel_count (instance);
+		public int ChannelCount => OboeInterop.oboe_audio_stream_base_get_channel_count (instance);
 		public OboePerformanceMode PerformanceMode => OboeInterop.oboe_audio_stream_base_get_performance_mode (instance);
 		public int FramesPerCallback => OboeInterop.oboe_audio_stream_base_get_frames_per_callback (instance);
 		public int BufferSizeInFrames => OboeInterop.oboe_audio_stream_base_get_buffer_size_in_frames (instance);
